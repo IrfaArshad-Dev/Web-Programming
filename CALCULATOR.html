@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+
+    <script>
+        // Button dabane par uski value display mein likh do
+        function press(value) {
+            var screen = document.getElementById("display");  // display wala box pakro
+            screen.value = screen.value + value;              // purane text ke saath nayi value jor do
+        }
+
+        // Del button: display ka sara text saaf kar do
+        function deleteAll() {
+            var screen = document.getElementById("display");  // display wala box pakro
+            screen.value = "";                                // text khali kar do
+        }
+
+        // = button: jawab nikalo
+        function calculate() {
+            var screen = document.getElementById("display");  // display wala box pakro
+            screen.value = eval(screen.value);                // eval text ko calculate kar deta hai, jaise "2+3" se 5
+        }
+
+        // √ button: square root nikalo
+        function squareRoot() {
+            var screen = document.getElementById("display");  // display wala box pakro
+            screen.value = Math.sqrt(screen.value);           // Math.sqrt square root nikalta hai
+        }
+
+        // % button: percent nikalo
+        function percent() {
+            var screen = document.getElementById("display");  // display wala box pakro
+            screen.value = screen.value / 100;                // 100 se divide karne se percent banta hai
+        }
+    </script>
+</head>
+
+<body>
+
+    <form>
+
+        <table width="300" cellspacing="8" cellpadding="0" style="background-color: #f7f7f7;">
+
+            <!-- Display screen (4 columns mein phaila hua) -->
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="display"
+                        style="width: 100%; height: 90px; text-align: right; font-size: 30px;">
+                </td>
+            </tr>
+
+            <!-- Row 1 -->
+            <tr>
+                <td><input type="button" value="√" onclick="squareRoot()" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="(" onclick="press('(')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value=")" onclick="press(')')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="%" onclick="percent()" style="width: 100%; height: 50px;"></td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+                <td><input type="button" value="7" onclick="press('7')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="8" onclick="press('8')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="9" onclick="press('9')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="/" onclick="press('/')" style="width: 100%; height: 50px;"></td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+                <td><input type="button" value="4" onclick="press('4')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="5" onclick="press('5')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="6" onclick="press('6')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="×" onclick="press('*')" style="width: 100%; height: 50px;"></td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+                <td><input type="button" value="1" onclick="press('1')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="2" onclick="press('2')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="3" onclick="press('3')" style="width: 100%; height: 50px;"></td>
+                <td><input type="button" value="-" onclick="press('-')" style="width: 100%; height: 50px;"></td>
+            </tr>
+
+            <!-- Row 5: "0" mein colspan, "+" mein rowspan -->
+            <tr>
+                <td colspan="2"><input type="button" value="0" onclick="press('0')" style="width: 100%; height: 50px;">
+                </td>
+                <td><input type="button" value="." onclick="press('.')" style="width: 100%; height: 50px;"></td>
+                <td rowspan="2"><input type="button" value="+" onclick="press('+')" style="width: 100%; height: 108px;">
+                </td>
+            </tr>
+
+            <!-- Row 6: "=" mein colspan -->
+            <tr>
+                <td><input type="button" value="Del" onclick="deleteLast()"
+                        style="width: 100%; height: 50px; background-color: #f0004c; color: white;"></td>
+                <td colspan="2"><input type="button" value="=" onclick="calculate()"
+                        style="width: 100%; height: 50px; background-color: #80c783; color: white;"></td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+
+</html>

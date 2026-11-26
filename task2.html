@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task 2</title>
+</head>
+
+<body>
+    <div style="border: 1px solid #44546a;"></div>
+
+    <h2>HTML Form in Table</h2>
+
+    <!-- The form holds everything, so Reset can clear it all -->
+    <form>
+        <table border="1" width="700" align="center">
+
+            <caption>Enter Information for Registration</caption>
+
+            <tr>
+                <td align="right">Username</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+
+            <tr>
+                <td align="right">Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="Male"> Male <br>
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Courses</td>
+                <!-- checkbox = many can be selected -->
+                <td>
+                    <input type="checkbox" name="course" value="Islamic Studies"> Islamic Studies
+                    <input type="checkbox" name="course" value="Pakistan Studies"> Pakistan Studies
+                    <input type="checkbox" name="course" value="Electronics I"> Electronics I
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">City</td>
+                <td>
+                    <!-- select = drop-down list -->
+                    <select name="city">
+                        <option>Select City</option>
+                        <option>Wah</option>
+                        <option>Taxila</option>
+                        <option>Rawalpindi</option>
+                        <option>Islamabad</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">Actions</td>
+                <td>
+                    <input type="submit" value="Submit">
+                    <!-- type="reset" clears the whole form -->
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    </div>
+</body>
+
+</html>

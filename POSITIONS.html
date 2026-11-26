@@ -1,0 +1,235 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Property</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: #4338ca;
+            padding: 25px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #4338ca;
+        }
+
+        .section {
+            background-color: white;
+            margin: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #00000015;
+        }
+
+        .container {
+            background-color: #e0f2fe;
+            border: 2px dashed #0284c7;
+            padding: 20px;
+            margin-top: 15px;
+            min-height: 120px;
+        }
+
+        .box {
+            width: 150px;
+            height: 65px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        /* 1. STATIC POSITION */
+        .static-box {
+            position: static;
+            background-color: #64748b;
+            top: 30px;
+            left: 30px;
+        }
+
+        /* 2. RELATIVE POSITION */
+        .relative-box {
+            position: relative;
+            top: 20px;
+            left: 40px;
+            background-color: #16a34a;
+        }
+
+        /* 3. ABSOLUTE POSITION */
+        .absolute-container {
+            position: relative;
+            height: 180px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ea580c;
+        }
+
+        /* 4. FIXED POSITION */
+        .fixed-box {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background-color: #db2777;
+            z-index: 1000;
+            width: 170px;
+        }
+
+        /* 5. STICKY POSITION */
+        .sticky-container {
+            height: 220px;
+            overflow-y: auto;
+            border: 2px solid #7c3aed;
+            padding: 10px;
+            background-color: #f5f3ff;
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 0;
+            background-color: #7c3aed;
+            width: 100%;
+            height: 45px;
+            z-index: 2;
+        }
+
+        .content {
+            height: 400px;
+            padding: 15px;
+        }
+
+        .note {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-left: 5px solid #d97706;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Position Property</h1>
+    <!-- 1. STATIC -->
+    <section class="section">
+        <h2>1. Position: Static</h2>
+        <p>
+            Static is the default position of every HTML element.
+            The element follows the normal document flow.
+            Top, right, bottom, and left do not move it.
+        </p>
+        <div class="container">
+            <div class="box static-box">Static Box</div>
+        </div>
+        <div class="note">
+            <strong>Remember:</strong>
+            Static elements cannot be repositioned using top,
+            right, bottom, or left.
+        </div>
+    </section>
+    <!-- 2. RELATIVE -->
+    <section class="section">
+        <h2>2. Position: Relative</h2>
+        <p>
+            Relative positioning moves an element from its original
+            position. Its original space remains reserved.
+        </p>
+        <div class="container">
+            <div class="box relative-box">Relative Box</div>
+        </div>
+        <div class="note">
+            <strong>Remember:</strong>
+            The box moves 20px down and 40px right,
+            but its original space remains in the layout.
+        </div>
+    </section>
+    <!-- 3. ABSOLUTE -->
+    <section class="section">
+        <h2>3. Position: Absolute</h2>
+        <p>
+            An absolutely positioned element is removed from the
+            normal document flow. It is positioned relative to its
+            nearest positioned ancestor.
+        </p>
+        <div class="container absolute-container">
+            <p>This is the parent container.</p>
+            <div class="box absolute-box">
+                Absolute Box
+            </div>
+        </div>
+        <div class="note">
+            <strong>Remember:</strong>
+            The parent has position: relative.
+            Therefore, the absolute box is positioned relative
+            to this parent, not the whole page.
+        </div>
+    </section>
+    <!-- 4. FIXED -->
+    <section class="section">
+        <h2>4. Position: Fixed</h2>
+        <p>
+            A fixed element is generally positioned relative to
+            the browser viewport and stays in the same place
+            while the page scrolls.
+        </p>
+        <div class="container">
+            <p>Scroll the page to see the pink box stay visible.</p>
+        </div>
+        <div class="note">
+            <strong>Example:</strong>
+            Fixed positioning is useful for floating help buttons,
+            chat buttons, or persistent navigation controls.
+        </div>
+    </section>
+    <!-- 5. STICKY -->
+    <section class="section">
+        <h2>5. Position: Sticky</h2>
+        <p>
+            Sticky positioning behaves like normal positioning
+            until the element reaches a specified scrolling offset.
+            It then sticks within its scrolling container.
+        </p>
+        <div class="sticky-container">
+            <div class="box sticky-box">
+                Sticky Header
+            </div>
+            <div class="content">
+                <p>Scroll inside this box.</p>
+                <p>The purple header sticks to the top.</p>
+                <p>Sticky elements need an offset such as top: 0.</p>
+                <p>Keep scrolling to observe the effect.</p>
+                <p>Sticky positioning is useful for section headers.</p>
+                <p>The header remains within this scrolling container.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2>Summary</h2>
+        <ul>
+            <li><strong>Static:</strong> Normal document flow.</li>
+            <li><strong>Relative:</strong> Moves from its original position.</li>
+            <li><strong>Absolute:</strong> Positioned relative to a containing block.</li>
+            <li><strong>Fixed:</strong> Usually stays relative to the viewport.</li>
+            <li><strong>Sticky:</strong> Switches to a stuck position while scrolling.</li>
+        </ul>
+    </section>
+    <!-- Floating fixed button -->
+    <div class="box fixed-box">
+        Fixed Position
+    </div>
+</body>
+
+</html>

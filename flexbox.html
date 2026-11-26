@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Flexbox Examples</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: #4338ca;
+            padding: 25px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #4338ca;
+        }
+
+        .section {
+            background-color: white;
+            margin: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #00000015;
+        }
+
+        code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Flex container used in all demos */
+        .flex {
+            display: flex;
+            background-color: #e0f2fe;
+            border: 2px dashed #0284c7;
+            padding: 10px;
+            margin-top: 15px;
+            min-height: 100px;
+        }
+
+        .item {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: bold;
+            padding: 15px 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .item:nth-child(2) {
+            background-color: #16a34a;
+            padding: 25px 20px;
+        }
+
+        .item:nth-child(3) {
+            background-color: #ea580c;
+        }
+
+        .item:nth-child(4) {
+            background-color: #db2777;
+        }
+
+        /* 1. flex-direction */
+        .row {
+            flex-direction: row;
+        }
+
+        .column {
+            flex-direction: column;
+        }
+
+        /* 2. justify-content */
+        .jc-center {
+            justify-content: center;
+        }
+
+        .jc-between {
+            justify-content: space-between;
+        }
+
+        .jc-around {
+            justify-content: space-around;
+        }
+
+        /* 3. align-items */
+        .ai-center {
+            align-items: center;
+            height: 140px;
+        }
+
+        .ai-end {
+            align-items: flex-end;
+            height: 140px;
+        }
+
+        .ai-stretch {
+            align-items: stretch;
+            height: 140px;
+        }
+
+        .ai-stretch .item {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* 4. flex-wrap + gap */
+        .wrap {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .wrap .item {
+            width: 180px;
+        }
+
+        /* 5. flex-grow */
+        .grow .item {
+            padding: 15px 20px;
+        }
+
+        .grow .item:nth-child(1) {
+            flex: 1;
+        }
+
+        .grow .item:nth-child(2) {
+            flex: 2;
+        }
+
+        .grow .item:nth-child(3) {
+            flex: 1;
+        }
+
+        /* 6. Real example: navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e293b;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* 7. Perfect centering */
+        .center-both {
+            justify-content: center;
+            align-items: center;
+            height: 160px;
+        }
+
+        .note {
+            background-color: #fef3c7;
+            padding: 12px;
+            border-left: 5px solid #d97706;
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>CSS Flexbox Examples</h1>
+
+    <!-- 1 -->
+    <section class="section">
+
+        <h2>1. flex-direction</h2>
+
+        <p>
+            <code>display: flex</code> turns a parent into a flex container.
+            <code>flex-direction</code> sets the main axis.
+        </p>
+
+        <p><strong>row</strong> (default)</p>
+
+        <div class="flex row">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <p style="margin-top:15px"><strong>column</strong></p>
+
+        <div class="flex column">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+    </section>
+
+    <!-- 2 -->
+    <section class="section">
+
+        <h2>2. justify-content (main axis)</h2>
+
+        <p><code>center</code></p>
+
+        <div class="flex jc-center">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <p style="margin-top:15px"><code>space-between</code></p>
+
+        <div class="flex jc-between">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <p style="margin-top:15px"><code>space-around</code></p>
+
+        <div class="flex jc-around">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+    </section>
+
+    <!-- 3 -->
+    <section class="section">
+
+        <h2>3. align-items (cross axis)</h2>
+
+        <p><code>center</code></p>
+
+        <div class="flex ai-center">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <p style="margin-top:15px"><code>flex-end</code></p>
+
+        <div class="flex ai-end">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <p style="margin-top:15px"><code>stretch</code> (default)</p>
+
+        <div class="flex ai-stretch">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+    </section>
+
+    <!-- 4 -->
+    <section class="section">
+
+        <h2>4. flex-wrap and gap</h2>
+
+        <p>
+            With <code>flex-wrap: wrap</code>, items move to the next line
+            when there is no space. <code>gap</code> adds space between items.
+        </p>
+
+        <div class="flex wrap">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+        </div>
+
+        <div class="note">
+            <strong>Tip:</strong> Resize the browser window to watch the items wrap.
+        </div>
+
+    </section>
+
+    <!-- 5 -->
+    <section class="section">
+
+        <h2>5. flex-grow</h2>
+
+        <p>
+            Items share leftover space by ratio. Here the middle item gets
+            <code>flex: 2</code>, the others <code>flex: 1</code>.
+        </p>
+
+        <div class="flex grow">
+            <div class="item">flex: 1</div>
+            <div class="item">flex: 2</div>
+            <div class="item">flex: 1</div>
+        </div>
+
+    </section>
+
+    <!-- 6 -->
+    <section class="section">
+
+        <h2>6. Real Example: Navbar</h2>
+
+        <div class="navbar">
+
+            <div class="logo">MyLogo</div>
+
+            <div class="links">
+                <span>Home</span>
+                <span>About</span>
+                <span>Contact</span>
+            </div>
+
+        </div>
+
+        <div class="note">
+
+            <code>justify-content: space-between</code> pushes the logo left and links right.
+
+            <code>align-items: center</code> aligns them vertically.
+
+        </div>
+
+    </section>
+
+    <!-- 7 -->
+    <section class="section">
+
+        <h2>7. Perfect Centering</h2>
+
+        <div class="flex center-both">
+            <div class="item">Centered</div>
+        </div>
+
+        <div class="note">
+
+            <code>justify-content: center</code> +
+            <code>align-items: center</code>
+
+            centers a box both horizontally and vertically.
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Summary</h2>
+
+        <ul>
+            <li><strong>display: flex</strong> - makes the parent a flex container.</li>
+            <li><strong>flex-direction</strong> - row or column (main axis).</li>
+            <li><strong>justify-content</strong> - alignment along the main axis.</li>
+            <li><strong>align-items</strong> - alignment along the cross axis.</li>
+            <li><strong>flex-wrap / gap</strong> - wrapping and spacing.</li>
+            <li><strong>flex (grow)</strong> - how items share extra space.</li>
+        </ul>
+
+    </section>
+
+</body>
+
+</html>
