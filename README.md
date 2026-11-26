@@ -29,11 +29,11 @@ This repository will be updated regularly as I complete new tasks and practical 
 
 | Task | Description | Status |
 |---|---|---|
-| Task 01 |  updated | 🔄 |
-| Task 02 | To be updated | 🔄 |
-| Task 03 | To be updated | 🔄 |
-| Task 04 | To be updated | 🔄 |
-| Task 05 | To be updated | 🔄 |
+| Task 01 |  updated 
+| Task 02 |  updated 
+| Task 03 |  updated 
+| Task 04 |  updated 
+| Task 05 |  updated 
 
 ## 🚀 Purpose
 
